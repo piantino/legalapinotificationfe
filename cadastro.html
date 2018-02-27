@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>PigeonHub</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Tribunal de Justiça</a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cadastro.html">
+                  Enviar intimação
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+	<br>
+        <main role="main" class="col-md-9 col-lg-10">
+
+         <div class="row">
+            <div class="col-sm-8">
+
+                <h3 class="page-header">Cadastro de informações</h3>
+                <br>
+                <h4 class="page-header">Destinatário</h4>
+                <form role="form">
+                    <div class="form-group float-label-control">
+                        <label for="">Nome</label>
+                        <input class="form-control" placeholder="Nome do destinatário">
+                    </div>
+                    <div class="form-group float-label-control">
+                      <label for="">Telefone</label>
+                      <input class="form-control" placeholder="Telefone do destinatário">
+                    </div>
+                    <div class="form-group float-label-control">
+                      <label for="">Email</label>
+                      <input type="email" class="form-control" placeholder="Email do destinatário">
+                    </div>
+                    <div class="form-group float-label-control">
+                      <label for="">CPF/CNPJ</label>
+                      <input class="form-control" placeholder="CPF/CNPJ do destinatário">
+                    </div>
+                </form>
+                <h4 class="page-header">Processo</h4>
+                <form role="form">
+                    <div class="form-group float-label-control">
+                      <label for="">Número</label>
+                      <input class="form-control" placeholder="Número do processo">
+                    </div>
+                     <div class="form-group float-label-control">
+                      <label for="">Prazo</label>
+                      <input class="form-control" placeholder="Prazo da intimação">
+                    </div>
+                    <div class="form-group float-label-control">
+                      <label for="">Tribunal de Justiça</label>
+                      <input class="form-control">
+                    </div>
+                    <div class="form-group float-label-control">
+                      <label for="">Foro</label>
+                      <input class="form-control">
+                    </div>
+                    <div class="form-group float-label-control">
+                      <label for="">Vara</label>
+                      <input class="form-control">
+                    </div>
+                </form>
+                <h4 class="page-header">Mensagem</h4>
+                <form role="form">
+                  <div class="form-group float-label-control">
+                  <label for="">Cópia para:</label>
+                  <input type="email" class="form-control" placeholder="Email para cópia">
+                  </div>
+                  <div class="form-group float-label-control">
+                   <label for="">Mensagem:</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </form>
+                <h4 class="page-header">Canais de envio</h4>
+                <form role="form">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked value="sms" id="sms">
+                    <label class="form-check-label" for="sms">WhatsApp/SMS</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked value="email" id="email">
+                    <label class="form-check-label" for="email">Email</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" checked value="redessociais" id="redessociais">
+                    <label class="form-check-label" for="redessociais">Redes sociais</label>
+                  </div>
+                </form>
+                <br>
+                <input class="btn btn-primary" onclick="confirm_form()" type="submit" value="Enviar">
+            </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      function confirm_form(){
+        window.alert('-- Enviado com sucesso --');
+        window.location.href='index.html';
+      }
+
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                ],
+                backgroundColor: [
+                    window.chartColors.red,
+                    window.chartColors.orange,
+                    window.chartColors.yellow,
+                    window.chartColors.green,
+                    window.chartColors.blue,
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+                "Red",
+                "Orange",
+                "Yellow",
+                "Green",
+                "Blue"
+            ]
+        },
+        options: {
+            responsive: true
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PigeonHub</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Tribunal de Justiça</a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cadastro.html">
+                  Enviar intimação
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+
+	<br>
+        <main role="main" class="col-md-9 col-lg-10">
+
+         <div class="row">
+            <div class="col-sm-8">
+
+                <h3 class="page-header">Status da intimação</h3>
+                <br>
+                <h4 class="page-header">Destinatário</h4>
+
+                    <div class="form-group float-label-control">
+                        <label for="">Nome:</label>
+                        <label for="">Jesus da silva</label>
+                        <br>
+                      <label for="">Telefone:</label>
+                      <label for="">48-984543639</label>
+                      <br>
+                      <label for="">Email:</label>
+                      <label for="">jesus@terra.com</label>
+                      <br>
+                      <label for="">CPF/CNPJ:</label>
+                      <label for="">022856536-42</label>
+                    </div>
+                 <h4 class="page-header">Processo</h4>
+                 <div class="form-group float-label-control">
+                        <label for="">Processo:</label>
+                        <label for="">0002326-18.2017.8.24.0090</label>
+                        <br>
+                      <label for="">Prazo:</label>
+                      <label for="">15/10/2018</label>
+                      <br>
+                      <label for="">Tribunal:</label>
+                      <label for="">TJSC</label>
+                      <br>
+                      <label for="">FORO:</label>
+                      <label for="">Florianópolis</label>
+                      <br>
+                      <label for="">Vara:</label>
+                      <label for="">Única</label>
+                      <br>
+                      <label for="">Status:</label>
+                      <spa class="badge badge-success">Ciente</span>
+                    </div>
+                    <h4 class="page-header">Detalhes da intimação</h4>
+                 <div class="form-group float-label-control">
+                   <label for="">Canal:</label>
+                      <label for="">Email</label>
+                      <br>
+                        <label for="">ip:</label>
+                        <label for="">187.94.103.249</label>
+                        <br>
+                        <label for="">Região:</label>
+                      <label for="">Florianópolis</label>
+                      <br>
+                      <label for="">País:</label>
+                      <label for="">Brasil</label>
+                      <br>
+                      <label for="">Data e Horário:</label>
+                      <label for="">25/02/2018 14:57:42</label>
+
+                    </div>
+
+            </div>
+
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                ],
+                backgroundColor: [
+                    window.chartColors.red,
+                    window.chartColors.orange,
+                    window.chartColors.yellow,
+                    window.chartColors.green,
+                    window.chartColors.blue,
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+                "Red",
+                "Orange",
+                "Yellow",
+                "Green",
+                "Blue"
+            ]
+        },
+        options: {
+            responsive: true
+        }
+      });
+    </script>
+  </body>
+</html>

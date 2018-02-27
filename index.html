@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PigeonHub</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Tribunal de Justiça</a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cadastro.html">
+                  Enviar intimação
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Filtro</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Mês atual
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Última semana
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Hoje
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Última hora
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+	<br>
+        <main role="main" class="col-md-9 col-lg-10">
+          <div>
+            <h1>Dashboard - Intimações (Hoje)</h1>
+          </div>
+
+<div class="chart-loading">Carregando...</div>
+          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+
+
+<div class="table-intimation">
+          <h2>Intimações</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+		<th>#</th>
+                  <th>Processo</th>
+                  <th>Parte</th>
+                  <th>e-mail</th>
+		<th>Local</th>
+                  <th>Data confirmação</th>
+                  <th>Status</th>
+<th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="#">0006666-18.2017.8.24.0090</a></td>
+<td><a href="#">002</a></td>
+                  <td><a href="#">João da Silva</a></td>
+                  <td><a href="#">Blumenau</a></td>
+                  <td><a href="#">Vara Cível</a></td>
+                  <td><spa class="badge badge-success">Ciente</span></td>
+			<td><a href="confirmacao.html"><i class="fa fa-file-o"></i></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+</div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+var URL_API = "https://legalapinotification.herokuapp.com/api/";
+
+window.chartColors = {
+	red: 'rgb(255, 99, 132)',
+	orange: 'rgb(255, 159, 64)',
+	yellow: 'rgb(255, 205, 86)',
+	green: 'rgb(75, 192, 192)',
+	blue: 'rgb(54, 162, 235)',
+	purple: 'rgb(153, 102, 255)',
+	grey: 'rgb(201, 203, 207)'
+};
+
+var loadChart = function(result) {
+	var ctx = document.getElementById("myChart");
+        var $chartLoading = $(".chart-loading").hide();
+	
+
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    result.send,
+                    result.received,
+                    result.open,
+                    result.span,
+		    result.confirmed
+                ],
+                backgroundColor: [
+                    window.chartColors.blue,
+                    window.chartColors.yellow,
+                    window.chartColors.orange,
+		    window.chartColors.red,
+                    window.chartColors.green,
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [ "Enviado", "Recebido", "Aberto", "Spam", "Ciente"]
+        },
+        options: {
+            responsive: true
+        }
+      });
+
+var statusMapper = {
+"Enviado" : "send", "Recebido": "received", "Aberto": "open", "Spam": "span", "Ciente": "confirmed"
+};
+
+
+    ctx.onclick = function(evt) {
+      var activePoints = myChart.getElementsAtEvent(evt);
+      if (activePoints[0]) {
+        var chartData = activePoints[0]['_chart'].config.data;
+        var idx = activePoints[0]['_index'];
+
+        var label = chartData.labels[idx];
+
+	$.ajax({
+	  url: URL_API + "stats/category/" + statusMapper[label],
+	  success: loadTable,
+crossDomain: true
+	});
+      }
+    };
+};
+
+var loadTable = function(result) {
+	var table = $(".table-intimation");
+	var tbody = table.find("tbody");
+
+	tbody.empty();
+
+	table.show();
+
+	for (var i = 0;  i < result.length; i++) {
+	var entry = result[i];
+	var confirmed = entry.confirmed ? entry.confirmed.date : "";
+var local = entry.confirmed ? entry.confirmed.local : "";
+var label =  entry.confirmed ? "Confirmado" : "Enviado";
+var icon = entry.confirmed ? "<a href='confirmacao.html'><i class='fa fa-file-o'></i></a>" : "";
+
+	   var line = $("<tr><td>"+entry.protocol+"</td><td>"+entry.process+"</td><td>"+entry.name+"</td><td>"+entry.email+"</td><td>"+confirmed+"</td><td>"+local+"</td><td><spa class='badge badge-success'>"+label+"</span></td><td>"+icon+"</td></tr>");
+
+		tbody.append(line);
+	}
+};
+
+$(function() {
+	$(".table-intimation").hide();
+
+	$.ajax({
+	  url: URL_API + "stats",
+	  success: loadChart,
+	crossDomain: true
+	});
+});
+
+
+    </script>
+  </body>
+</html>
